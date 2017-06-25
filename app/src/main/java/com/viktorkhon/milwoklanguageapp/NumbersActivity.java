@@ -27,12 +27,19 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
+        // Find the ID of Linear Layout in activity_numbers
         LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+        // Create a variable to keep track of the current index position in the array
         int i = 0;
+        // Create a new while loop to display the String Array of numbers
         while (i < words.size()) {
+            // Create a new {@link TextView} that displayed the words
             TextView numbers = new TextView(this);
+            // display 1 word at a time, based on the index position
             numbers.setText(words.get(i));
+            // add the View as a child to the parent rootView
             rootView.addView(numbers);
+            // increase index position by 1
             i++;
         }
 
