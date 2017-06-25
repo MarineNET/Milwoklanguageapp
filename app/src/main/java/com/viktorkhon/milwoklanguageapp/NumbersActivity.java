@@ -2,7 +2,9 @@ package com.viktorkhon.milwoklanguageapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -27,18 +29,13 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
-        // Find the ID of Linear Layout in activity_numbers
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
-        // Create a new for loop to display the String Array of numbers
-        for (int i = 0; i <words.size(); i++) {
-            // Create a new {@link TextView} that displayed the words
-            TextView numbers = new TextView(this);
-            // display 1 word at a time, based on the index position
-            numbers.setText(words.get(i));
-            // add the View as a child to the parent rootView
-            rootView.addView(numbers);
-        }
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
 
     }
 }
