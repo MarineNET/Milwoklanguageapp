@@ -2,10 +2,7 @@ package com.viktorkhon.milwoklanguageapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,10 +11,10 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_numbers);
+        setContentView(R.layout.word_list);
 
         // Create a new string of words in an ArrayList from a Word object
-        ArrayList<Word> words = new ArrayList<Word>();
+        ArrayList<Word> words = new ArrayList<>();
 
         words.add(new Word("one", "lutti"));
         words.add(new Word("two", "otiiko"));
@@ -38,7 +35,7 @@ public class NumbersActivity extends AppCompatActivity {
 
         /** Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
          * There should be a {@link ListView} with the view ID called list, which is declared in
-         * activity_numbers.xml layout file.
+         * word_list.xml file.
          */
         ListView listView = (ListView) findViewById(R.id.list);
 
