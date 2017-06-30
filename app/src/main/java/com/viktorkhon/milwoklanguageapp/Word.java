@@ -9,14 +9,18 @@ import android.graphics.drawable.Drawable;
 
 public class Word {
 
+
     /** Default translation for the word */
     private String mDefaultTranslation;
 
     /** Miwok translation for the word */
     private String mMiwokTranslation;
 
+    // Constant value that represents no image was provided for this word
+    private static final int NO_IMAGE_PROVIDED = -1;
+
     /** image that corresponds to the word */
-    private int mImage;
+    private int mImage = NO_IMAGE_PROVIDED;
 
     /**
      * Create a new Word object.
@@ -42,6 +46,11 @@ public class Word {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImage = image;
+    }
+
+    // Returns whether or not there is an image for this word
+    public boolean hasImage () {
+         return mImage != NO_IMAGE_PROVIDED;
     }
 
     /**
