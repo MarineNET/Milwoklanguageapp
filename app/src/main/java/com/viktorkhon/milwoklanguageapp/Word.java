@@ -17,6 +17,7 @@ public class Word {
     private String mMiwokTranslation;
 
     // Constant value that represents no image was provided for this word
+    // -1 is used simply because it is out of the range of any possible valid rcs IDs
     private static final int NO_IMAGE_PROVIDED = -1;
 
     /** image that corresponds to the word */

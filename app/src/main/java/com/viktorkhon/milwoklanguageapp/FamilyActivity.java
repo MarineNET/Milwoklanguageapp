@@ -1,5 +1,6 @@
 package com.viktorkhon.milwoklanguageapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -27,11 +28,10 @@ public class FamilyActivity extends AppCompatActivity {
         words.add(new Word("grandmother", "ama", R.drawable.family_grandmother));
         words.add(new Word("grandfather", "paapa", R.drawable.family_grandfather));
 
-
-        /** Create a {@link WordAdapter}, whose data source is a list of {@link Word}s. The
+         /** Create a {@link WordAdapter}, whose data source is a list of {@link Word}s. The
          * adapter knows how to create a list items for each item in the list
          */
-        WordAdapter adapter = new WordAdapter(this, words);
+        WordAdapter adapter = new WordAdapter(this, words, R.color.category_family);
 
         /** Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
          * There should be a {@link ListView} with the view ID called list, which is declared in
@@ -43,6 +43,7 @@ public class FamilyActivity extends AppCompatActivity {
          * that the {@link ListView} will display list items for each {@link Word} in the list.
          */
         listView.setAdapter(adapter);
-
     }
+
+
 }
