@@ -16,9 +16,10 @@
 
     <LinearLayout
         android:id="@+id/textLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="88dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_weight="5">
 
 
         <TextView
@@ -34,4 +35,20 @@
             tools:text="one"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="88dp"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/play"/>
+
 </LinearLayout>

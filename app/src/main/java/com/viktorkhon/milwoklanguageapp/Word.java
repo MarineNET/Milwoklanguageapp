@@ -23,6 +23,8 @@ public class Word {
     /** image that corresponds to the word */
     private int mImage = NO_IMAGE_PROVIDED;
 
+    private int mSound;
+
     /**
      * Create a new Word object.
      *
@@ -49,6 +51,14 @@ public class Word {
         mImage = image;
     }
 
+    public Word(String defaultTranslation, String miwokTranslation, int image, int sound) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mImage = image;
+        mSound = sound;
+    }
+
+
     // Returns whether or not there is an image for this word
     public boolean hasImage () {
          return mImage != NO_IMAGE_PROVIDED;
@@ -71,5 +81,9 @@ public class Word {
      */
     public int getImage() {
         return mImage;
+    }
+
+    public int getSound() {
+        return mSound;
     }
 }
