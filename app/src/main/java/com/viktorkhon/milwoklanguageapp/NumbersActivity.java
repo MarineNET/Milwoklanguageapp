@@ -2,7 +2,8 @@ package com.viktorkhon.milwoklanguageapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -21,11 +22,12 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("four");
         words.add("five");
 
-        Log.v("Number one: ", words.get(0));
-        Log.v("Number two: ", words.get(1));
-        Log.v("Number three: ", words.get(2));
-        Log.v("Number four: ", words.get(3));
-        Log.v("Number five: ", words.get(4));
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_list_item_1, words);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+        listView.setAdapter(itemsAdapter);
     }
 
 
