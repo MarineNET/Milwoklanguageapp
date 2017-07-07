@@ -31,4 +31,11 @@ public class Word {
     public int getImage() {
         return mImage;
     }
+
+    public boolean hasImage() {
+        if (mImage == -1) {
+            return false;
+        }
+        return true;
+    }
 }
