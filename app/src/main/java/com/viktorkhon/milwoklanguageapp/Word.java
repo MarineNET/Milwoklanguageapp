@@ -9,21 +9,14 @@ import android.graphics.drawable.Drawable;
 
 public class Word {
 
-
     /** Default translation for the word */
     private String mDefaultTranslation;
 
     /** Miwok translation for the word */
     private String mMiwokTranslation;
 
-    // Constant value that represents no image was provided for this word
-    // -1 is used simply because it is out of the range of any possible valid rcs IDs
-    private static final int NO_IMAGE_PROVIDED = -1;
-
     /** image that corresponds to the word */
-    private int mImage = NO_IMAGE_PROVIDED;
-
-    private int mSound;
+    private int mImage;
 
     /**
      * Create a new Word object.
@@ -43,7 +36,7 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
-     * @parm image is the image that shows the word
+     * @param image is the image that shows the word
      */
     public Word(String defaultTranslation, String miwokTranslation, int image) {
         mDefaultTranslation = defaultTranslation;
@@ -51,17 +44,13 @@ public class Word {
         mImage = image;
     }
 
-    public Word(String defaultTranslation, String miwokTranslation, int image, int sound) {
-        mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
-        mImage = image;
-        mSound = sound;
-    }
-
-
-    // Returns whether or not there is an image for this word
+    // Check if there is an image present. Return false if no image ID is found
+    // Return true if there is an ID (int)
     public boolean hasImage () {
-         return mImage != NO_IMAGE_PROVIDED;
+         if (mImage <=0) {
+             return false;
+         }
+         return true;
     }
 
     /**
@@ -83,7 +72,4 @@ public class Word {
         return mImage;
     }
 
-    public int getSound() {
-        return mSound;
-    }
 }

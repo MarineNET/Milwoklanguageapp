@@ -16,7 +16,7 @@ public class PhrasesActivity extends AppCompatActivity {
         // Create a new string of words in an ArrayList from a Word object
         ArrayList<Word> words = new ArrayList<>();
 
-        words.add(new Word("Where are you going?", "minto wuksus", R.raw.color_black));
+        words.add(new Word("Where are you going?", "minto wuksus"));
         words.add(new Word("What is your name?", "tinnә oyaase'nә"));
         words.add(new Word("My name is...", "oyaaset..."));
         words.add(new Word("How are you feeling?", "michәksәs?"));
