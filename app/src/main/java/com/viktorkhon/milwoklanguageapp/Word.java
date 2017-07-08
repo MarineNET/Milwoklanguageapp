@@ -27,9 +27,10 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audio) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudio = audio;
         }
 
     /**
@@ -40,10 +41,11 @@ public class Word {
      * @param miwokTranslation is the word in the Miwok language
      * @param image is the image that shows the word
      */
-    public Word(String defaultTranslation, String miwokTranslation, int image) {
+    public Word(String defaultTranslation, String miwokTranslation, int image, int audio) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImage = image;
+        mAudio = audio;
     }
 
     // Check if there is an image present. Return false if no image ID is found
