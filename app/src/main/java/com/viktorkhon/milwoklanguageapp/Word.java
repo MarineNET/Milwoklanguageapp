@@ -18,6 +18,8 @@ public class Word {
     /** image that corresponds to the word */
     private int mImage;
 
+    private int mAudio;
+
     /**
      * Create a new Word object.
      *
@@ -72,4 +74,7 @@ public class Word {
         return mImage;
     }
 
+    public int getAudio() {
+        return mAudio;
+    }
 }

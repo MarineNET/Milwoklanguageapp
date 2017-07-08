@@ -1,12 +1,18 @@
 package com.viktorkhon.milwoklanguageapp;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
+
+    private MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +20,7 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.word_list);
 
         // Create a new string of words in an ArrayList from a Word object
-        ArrayList<Word> words = new ArrayList<>();
+        final ArrayList<Word> words = new ArrayList<>();
 
         words.add(new Word("one", "lutti", R.drawable.number_one));
         words.add(new Word("two", "otiiko", R.drawable.number_two));
@@ -31,7 +37,7 @@ public class NumbersActivity extends AppCompatActivity {
         /** Create a {@link WordAdapter}, whose data source is a list of {@link Word}s. The
          * adapter knows how to create a list items for each item in the list
          */
-        WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
+        final WordAdapter adapter = new WordAdapter(this, words, R.color.category_numbers);
 
         /** Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
          * There should be a {@link ListView} with the view ID called list, which is declared in
@@ -44,5 +50,14 @@ public class NumbersActivity extends AppCompatActivity {
          */
         listView.setAdapter(adapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                mMediaPlayer = MediaPlayer.create(NumbersActivity.this,
+                        R.raw.color_black);
+                mMediaPlayer.start();
+            }
+        });
     }
 }
