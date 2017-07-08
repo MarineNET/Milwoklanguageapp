@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -108,5 +109,13 @@ public class FamilyActivity extends AppCompatActivity {
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
         }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // When the activity is stopped, release media player resources because we don't want
+        // the app to be playing sounds anymore
+        releaseMediaPlayer();
     }
 }
