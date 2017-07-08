@@ -26,6 +26,7 @@ public class Word {
      * @param defaultTranslation is the word in a language that the user is already familiar with
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
+     * @param audio is the correspondent audio pronunciation for each word
      */
     public Word(String defaultTranslation, String miwokTranslation, int audio) {
         mDefaultTranslation = defaultTranslation;
@@ -40,6 +41,7 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation is the word in the Miwok language
      * @param image is the image that shows the word
+     * @param audio is the correspondent audio pronunciation for each word
      */
     public Word(String defaultTranslation, String miwokTranslation, int image, int audio) {
         mDefaultTranslation = defaultTranslation;
