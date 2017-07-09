@@ -75,6 +75,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // Set the background color of the text container View
             textLayout.setBackgroundResource(mColorResourceId);
 
+            ImageView playButton = (ImageView) listItemView.findViewById(R.id.iv_play_button);
+            playButton.setBackgroundResource(mColorResourceId);
+
             // Return the whole list item layout (containing 2 TextViews and 1 image)
             // so that it can be shown in the ListView.
             return listItemView;
