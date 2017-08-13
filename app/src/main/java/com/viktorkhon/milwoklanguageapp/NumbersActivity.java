@@ -3,8 +3,8 @@ package com.viktorkhon.milwoklanguageapp;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -13,7 +13,9 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    /** Handles playback of all the sound files */
+    /**
+     * Handles playback of all the sound files
+     */
     MediaPlayer mMediaPlayer;
 
     MediaPlayer.OnCompletionListener mOnCompletionListener =
@@ -23,7 +25,9 @@ public class NumbersActivity extends AppCompatActivity {
                 }
             };
 
-    /** Handles audio focus when playing a sound file */
+    /**
+     * Handles audio focus when playing a sound file
+     */
     private AudioManager mAudioManager;
 
     /**
@@ -32,29 +36,29 @@ public class NumbersActivity extends AppCompatActivity {
      */
     AudioManager.OnAudioFocusChangeListener afChangeListener =
             new AudioManager.OnAudioFocusChangeListener() {
-        @Override
-        public void onAudioFocusChange(int focusChange) {
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
-                    focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
-                // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
-                // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
-                // our app is allowed to continue playing sound but at a lower volume. We'll treat
-                // both cases the same way because our app is playing short sound files.
+                @Override
+                public void onAudioFocusChange(int focusChange) {
+                    if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                            focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                        // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
+                        // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
+                        // our app is allowed to continue playing sound but at a lower volume. We'll treat
+                        // both cases the same way because our app is playing short sound files.
 
-                // Pause playback and reset player to the start of the file. That way, we can
-                // play the word from the beginning when we resume playback.
-                mMediaPlayer.pause();
-                mMediaPlayer.seekTo(0);
-            } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
-                // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
-                mMediaPlayer.start();
-            } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
-                // The AUDIOFOCUS_LOSS case means we've lost audio focus
-                // Stop playback and clean up resources
-                releaseMediaPlayer();
-            }
-        }
-    };
+                        // Pause playback and reset player to the start of the file. That way, we can
+                        // play the word from the beginning when we resume playback.
+                        mMediaPlayer.pause();
+                        mMediaPlayer.seekTo(0);
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                        // The AUDIOFOCUS_GAIN case means we have regained focus and can resume playback.
+                        mMediaPlayer.start();
+                    } else if (focusChange == AudioManager.AUDIOFOCUS_LOSS) {
+                        // The AUDIOFOCUS_LOSS case means we've lost audio focus
+                        // Stop playback and clean up resources
+                        releaseMediaPlayer();
+                    }
+                }
+            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
